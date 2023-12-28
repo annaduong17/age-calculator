@@ -1,17 +1,16 @@
 import { useContext } from 'react';
-import AgeContext from '../context/age';
 import Display from './Display';
+import AgeContext from '../context/age';
 
 export default function Age() {
-  const { day, month, year, formSubmitted } = useContext(AgeContext);
-  
-  
+  const { getAge, ageObj } = useContext(AgeContext);
+  const age = getAge(ageObj);
 
   return(
     <div>
-      <Display>years</Display>
-      <Display>months</Display>
-      <Display>days</Display>
+      <Display value={age.years} >years</Display>
+      <Display value={age.months} >months</Display>
+      <Display value={age.days} >days</Display>
     </div>
   )
 }
