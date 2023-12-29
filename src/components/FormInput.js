@@ -1,9 +1,9 @@
-export default function FormInput({ label, value, onChange }) {
+export default function FormInput({ label, value, onChange, ...rest }) {
   
   return(
     <div>
       <label htmlFor="">{label.toUpperCase()}</label>
-      <input value={value} onChange={onChange} type="text" />
+      <input {...rest} value={value} onChange={onChange} type="text" />
     </div>
   )
 }

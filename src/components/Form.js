@@ -7,9 +7,9 @@ export default function Form() {
 
   return(
     <form onSubmit={(e) => onSubmit(e, ageObj)}>
-      <FormInput label="day" value={day} onChange={handleDayChange} />
-      <FormInput label="month" value={month} onChange={handleMonthChange} />
-      <FormInput label="year" value={year} onChange={handleYearChange} />
+      <FormInput maxLength={2} required type="number" label="day" value={day} onChange={handleDayChange} />
+      <FormInput maxLength={2} required type="number" label="month" value={month} onChange={handleMonthChange} />
+      <FormInput maxLength={4} required type="number" label="year" value={year} onChange={handleYearChange} />
       <div>
         <hr />
         <button >Submit</button>
