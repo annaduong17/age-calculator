@@ -3,13 +3,13 @@ import FormInput from './FormInput';
 import AgeContext from '../context/age';
 
 export default function Form() {
-  const { days, handleDaysChange, months, handleMonthsChange, years, handleYearsChange, onSubmit, ageObj } = useContext(AgeContext);
+  const { day, handleDayChange, month, handleMonthChange, year, handleYearChange, onSubmit, ageObj } = useContext(AgeContext);
 
   return(
     <form onSubmit={(e) => onSubmit(e, ageObj)}>
-      <FormInput label="day" value={days} onChange={handleDaysChange} />
-      <FormInput label="month" value={months} onChange={handleMonthsChange} />
-      <FormInput label="year" value={years} onChange={handleYearsChange} />
+      <FormInput label="day" value={day} onChange={handleDayChange} />
+      <FormInput label="month" value={month} onChange={handleMonthChange} />
+      <FormInput label="year" value={year} onChange={handleYearChange} />
       <div>
         <hr />
         <button >Submit</button>

@@ -3,55 +3,55 @@ import { createContext, useState } from "react";
 const AgeContext = createContext();
 
 function Provider({ children }) {
-  const [ days, setDays ] = useState('');
-  const [ months, setMonths ] = useState('');
-  const [ years, setYears ] = useState('');
+  const [ day, setDay ] = useState('');
+  const [ month, setMonth ] = useState('');
+  const [ year, setYear ] = useState('');
   const [ formSubmitted, setFormSubmitted ] = useState(false);
-  const ageObj = {days, months, years};
+  const ageObj = {day, month, year};
 
   const getAge = (obj) => {
     const today = new Date();
     obj.month -= 1;
 
     let age = {};
-    let yearDiff = today.getFullYear() - obj.years;
+    let yearDiff = today.getFullYear() - obj.year;
 
-    if (today.getMonth() < obj.months || (today.getMonth() === obj.months && today.getDate() < obj.days)) {
+    if (today.getMonth() < obj.month || (today.getMonth() === obj.month && today.getDate() < obj.day)) {
       yearDiff--;
     }
 
-    age.years = yearDiff;
-    age.months = today.getMonth() - obj.months + (today.getDate() < obj.days ? -1 : 0);
-    console.log(age.months);
+    age.year = yearDiff;
+    age.month = today.getMonth() - obj.month + (today.getDate() < obj.day ? -1 : 0);
+    console.log(age.month);
 
-    if (age.months < 0) {
-      age.months += 12;
+    if (age.month < 0) {
+      age.month += 12;
     }
 
-    age.days = today.getDate() - obj.days;
+    age.day = today.getDate() - obj.day;
 
-    if (age.days < 0) {
-      const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, obj.days);
-      const daysInLastMonth = new Date(lastMonth.getFullYear(), lastMonth.getMonth() + 1, 0).getDate();
-      age.days += daysInLastMonth;
-      age.months--; 
+    if (age.day < 0) {
+      const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, obj.day);
+      const dayInLastMonth = new Date(lastMonth.getFullYear(), lastMonth.getMonth() + 1, 0).getDate();
+      age.day += dayInLastMonth;
+      age.month--; 
     }
     console.log(`this is age`, age);
     return age;
   }
 
   const value = {
-    days,
-    handleDaysChange: (e) => {
-      setDays(e.target.value);
+    day,
+    handledayChange: (e) => {
+      setDay(e.target.value);
     },
-    months,
-    handleMonthsChange: (e) => {
-      setMonths(e.target.value);
+    month,
+    handlemonthChange: (e) => {
+      setMonth(e.target.value);
     },
-    years, 
-    handleYearsChange: (e) => {
-      setYears(e.target.value);
+    year, 
+    handleyearChange: (e) => {
+      setYear(e.target.value);
     }, 
     formSubmitted,
     onSubmit: (e, ageObj) => {
