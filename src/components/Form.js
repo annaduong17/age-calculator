@@ -26,7 +26,7 @@ export default function Form() {
       <div className='flex-row'>
         <FormInput type="number" errorMessage={dayError} maxLength={2} isValid={dayIsValid} required label="DAY" value={day} onChange={handleDayChange} />
         <FormInput type="number" errorMessage={monthError} maxLength={2} isValid={monthIsValid} required label="MONTH" value={month} onChange={handleMonthChange} />
-        <FormInput required type="number" errorMessage={yearError} label='YEAR' value={year} onChange={handleYearChange} />
+        <FormInput required type="number" errorMessage={yearError} label='YEAR' value={year} onChange={handleYearChange} isValid={yearIsValid} />
       </div>
       <div className='flex-row'>
         <hr />
