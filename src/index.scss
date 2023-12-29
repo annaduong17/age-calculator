@@ -11,17 +11,35 @@ $off-black: hsl(0, 0%, 8%);
 body {
   box-sizing: border-box;
   font-family: 'Poppins';
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $off-white;
+  height: 100vh;
+}
+
+.container {
+  background-color: $white;
+  width: 625px;
+  height: 525px;
+  border-radius: 20px 20px 150px 20px;
 }
 
 .flex-row {
   display: flex;
-  margin: 5vw;
-  margin-bottom: 0;
+  padding: 40px;
+  padding-bottom: 0;
 
   hr {
     width: 100%;
     height: 0;
-    border: 0.5px solid $light-gray;
+    border: 0.25px solid $light-gray;
     margin: 0;
   }
 
@@ -29,41 +47,37 @@ body {
     background-color: $purple;
     border: none;
     border-radius: 50%;
-    height: 11vw;
-    width: 12vw;
+    height: 70px;
+    width: 80px;
     cursor: pointer;
   }
 
   svg {
-    width: 5vw;
+    width: 30px;
   }
 }
 
 .flex-col {
   display: flex;
   flex-direction: column;
-  margin-right: 5vw;
+  margin-right: 25px;
   
   label {
     color: $smoke-gray;
-    font-size: 2vw;
-    letter-spacing: 0.75vw;
-    margin-bottom: 1vw;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
   }
 
   input {
     color: $off-black;
-    font-size: 3vw;
+    font-size: 20px;
     font-weight: 700;
-    height: 6vw;
-    width: 15vw;
+    height: 50px;
+    width: 110px;
     border: 1px solid $light-gray;
-    border-radius: 0.75vw;
-    padding-left: 2vw;
-  }
-
-  p {
-    margin: 5vw;
+    border-radius: 5px;
+    padding-left: 10px;
   }
 }
 
@@ -71,51 +85,53 @@ body {
 
   display: flex;
   flex-direction: column;
-  margin-right: 5vw;
+  margin-right: 25px;
 
   label {
     color: $light-red;
-    font-size: 2vw;
-    letter-spacing: 0.75vw;
-    margin-bottom: 1vw;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
   }
 
   input {
-    font-weight: 700;
     color: $off-black;
-    font-size: 3vw;
+    font-size: 20px;
     font-weight: 700;
-    height: 6vw;
-    width: 15vw;
+    height: 50px;
+    width: 110px;
     border: 1px solid $light-red;
-    border-radius: 0.75vw;
-    padding-left: 2vw;
+    border-radius: 5px;
+    padding-left: 10px;
   }
 
   p {
     color: $light-red;
     font-style: italic;
-    font-size: 1.5vw;
+    font-size: 10px;
   }
 }
 
 .divider {
   align-items: center;
+  padding-top: 0;
   margin: 0;
 }
 
 .display-container {
-  height: auto;
+  padding-bottom: 20px;
 }
 
 .age {
-  font-size: 10vw;
+  font-size: 75px;
   font-weight: 800;
   font-style: italic;
-  height: 5vw;
+  height: 75px;
+  padding-top: 0;
   
   p {
-    margin-right: 1vw;
+    margin: 0;
+    margin-right: 10px;
   }
 }
 

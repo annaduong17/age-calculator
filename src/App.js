@@ -3,9 +3,11 @@ import Age from './components/Age';
 
 export default function App() {
   return(
-    <div>
-      <Form />
-      <Age />
+    <div className='app'>
+      <div className='container'>
+        <Form />
+        <Age />
+      </div>
     </div>
   );
 }
