@@ -6,61 +6,72 @@ function Provider({ children }) {
   const [ day, setDay ] = useState('');
   const [ month, setMonth ] = useState('');
   const [ year, setYear ] = useState('');
+  const [ dayIsValid, setDayIsValid ] = useState(true);
+  const [ monthIsValid, setMonthIsValid ] = useState(true);
+  const [ yearIsValid, setYearIsValid ] = useState(true);
   const [ formSubmitted, setFormSubmitted ] = useState(false);
-  const ageObj = {day, month, year};
+  const [ age, setAge ] = useState({});
 
-  const getAge = (obj) => {
-    const today = new Date();
-    obj.month -= 1;
+  const today = new Date();
+  
+  const handleDayChange = (e) => {
+    const value = e.target.value;
+    setDay(value);
+    
 
-    let age = {};
-    let yearDiff = today.getFullYear() - obj.year;
-
-    if (today.getMonth() < obj.month || (today.getMonth() === obj.month && today.getDate() < obj.day)) {
-      yearDiff--;
+    if (value > 31 || value < 1 ) {
+      setDayIsValid(false);
+    } else {
+      setDayIsValid(true);
+      setAge({...age, days: today.getDate() - value});
     }
+  };
 
-    age.years = yearDiff;
-    age.months = today.getMonth() - obj.month + (today.getDate() < obj.day ? -1 : 0);
-    console.log(age.month);
-
-    if (age.month < 0) {
-      age.month += 12;
+  const handleMonthChange = (e) => {
+    const value = e.target.value;
+    setMonth(value);
+    
+    if (value > 12) {
+      setMonthIsValid(false);
+    } else {
+      setMonthIsValid(true);
+      setAge({...age, months: today.getMonth() + 1 - value});
     }
+  };
 
-    age.days = today.getDate() - obj.day;
+  const handleYearChange = (e) => {
+    const value = e.target.value;
+    setYear(value);
 
-    if (age.days < 0) {
-      const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, obj.day);
-      const dayInLastMonth = new Date(lastMonth.getFullYear(), lastMonth.getMonth() + 1, 0).getDate();
-      age.days += dayInLastMonth;
-      age.months--; 
+    if (value > new Date().getFullYear()) {
+      setYearIsValid(false);
+    } else {
+      setYearIsValid(true);
+      setAge({...age, years: today.getFullYear() - value});
     }
-    console.log(`this is age`, age);
-    return age;
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setDay('');
+    setMonth('');
+    setYear('');
   }
 
   const value = {
     day,
-    handleDayChange: (e) => {
-      setDay(e.target.value);
-    },
+    handleDayChange,
     month,
-    handleMonthChange: (e) => {
-      setMonth(e.target.value);
-    },
+    handleMonthChange,
     year, 
-    handleYearChange: (e) => {
-      setYear(e.target.value);
-    }, 
+    handleYearChange, 
     formSubmitted,
-    onSubmit: (e, ageObj) => {
-      e.preventDefault();
-      setFormSubmitted(true);
-      getAge(ageObj);
-    },
-    ageObj,
-    getAge
+    onSubmit,
+    age,
+    dayIsValid,
+    monthIsValid,
+    yearIsValid,
   }
 
   return(

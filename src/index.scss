@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Lato:wght@100;400;700&family=Poppins:ital,wght@0,700;1,400;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap');
+
+$purple: hsl(259, 100%, 65%);
+$light-red: hsl(0, 100%, 67%);
+$white: hsl(0, 0%, 100%);
+$off-white: hsl(0, 0%, 94%);
+$light-gray: hsl(0, 0%, 86%);
+$smoke-gray: hsl(0, 1%, 44%);
+$off-black: hsl(0, 0%, 8%);
+
+body {
+  box-sizing: border-box;
+  font-family: 'Poppins';
+}
+
+.error {
+  label {
+    color: $light-red;
+  }
+
+  input {
+    border: 1px solid $light-red;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+
+  p {
+    color: $light-red;
+    font-style: italic;
+    font-size: 12px;
+  }
+}
+
