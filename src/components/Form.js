@@ -24,9 +24,9 @@ export default function Form() {
   return(
     <form onSubmit={onSubmit}>
       <div className='flex-row'>
-        <FormInput type="number" errorMessage={dayError} maxLength={2} isValid={dayIsValid} required label="DAY" value={day} onChange={handleDayChange} />
-        <FormInput type="number" errorMessage={monthError} maxLength={2} isValid={monthIsValid} required label="MONTH" value={month} onChange={handleMonthChange} />
-        <FormInput required type="number" errorMessage={yearError} label='YEAR' value={year} onChange={handleYearChange} isValid={yearIsValid} />
+        <FormInput placeholder="DD" type="number" errorMessage={dayError} maxLength={2} isValid={dayIsValid} required label="DAY" value={day} onChange={handleDayChange} />
+        <FormInput placeholder="MM" type="number" errorMessage={monthError} maxLength={2} isValid={monthIsValid} required label="MONTH" value={month} onChange={handleMonthChange} />
+        <FormInput placeholder="YYYY" required type="number" errorMessage={yearError} label='YEAR' value={year} onChange={handleYearChange} isValid={yearIsValid} />
       </div>
       <div className='flex-row divider'>
         <hr />
