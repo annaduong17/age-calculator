@@ -11,7 +11,7 @@ export default function FormInput({ label, value, onChange, errorMessage, type, 
   
   
   return(
-    <div className={classes}>
+    <div className={classes || "flex-col"}>
       <label  htmlFor="">{label}</label>
       <input type={type} {...rest} value={value} onChange={onChange} />
       <p>{errorMessage}</p>

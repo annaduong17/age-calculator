@@ -53,10 +53,9 @@ function Provider({ children }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setDay('');
-    setMonth('');
-    setYear('');
+    if (dayIsValid && monthIsValid && yearIsValid) {
+      setFormSubmitted(true);
+    } 
   }
 
   const value = {
