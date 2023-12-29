@@ -20,21 +20,21 @@ function Provider({ children }) {
       yearDiff--;
     }
 
-    age.year = yearDiff;
-    age.month = today.getMonth() - obj.month + (today.getDate() < obj.day ? -1 : 0);
+    age.years = yearDiff;
+    age.months = today.getMonth() - obj.month + (today.getDate() < obj.day ? -1 : 0);
     console.log(age.month);
 
     if (age.month < 0) {
       age.month += 12;
     }
 
-    age.day = today.getDate() - obj.day;
+    age.days = today.getDate() - obj.day;
 
-    if (age.day < 0) {
+    if (age.days < 0) {
       const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, obj.day);
       const dayInLastMonth = new Date(lastMonth.getFullYear(), lastMonth.getMonth() + 1, 0).getDate();
-      age.day += dayInLastMonth;
-      age.month--; 
+      age.days += dayInLastMonth;
+      age.months--; 
     }
     console.log(`this is age`, age);
     return age;
@@ -42,15 +42,15 @@ function Provider({ children }) {
 
   const value = {
     day,
-    handledayChange: (e) => {
+    handleDayChange: (e) => {
       setDay(e.target.value);
     },
     month,
-    handlemonthChange: (e) => {
+    handleMonthChange: (e) => {
       setMonth(e.target.value);
     },
     year, 
-    handleyearChange: (e) => {
+    handleYearChange: (e) => {
       setYear(e.target.value);
     }, 
     formSubmitted,
