@@ -36,18 +36,6 @@ function Provider({ children }) {
     return { years, months, days };
   }
 
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData({...formData, [name]: value});
-  //   setFormSubmitted(false);
-  //   const { year, month, day } = formData;
-  //   console.log(year);
-  //   const birthdate = `${year}-${month}-${day}`;
-  //   const calcAge = calculateAge(birthdate);
-
-  //   setAge(calcAge);
-  // };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
   
@@ -66,7 +54,6 @@ function Provider({ children }) {
     });
   };
   
-
   const validateForm = (data) => {
     const newErrors = {};
 
