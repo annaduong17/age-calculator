@@ -11,6 +11,7 @@ function Provider({ children }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({...formData, [name]: value});
+    setFormSubmitted(false);
     if (name === 'day') {
       setAge({...age, days: new Date().getDate() - value});
     } else if (name === 'month') {
