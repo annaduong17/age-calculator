@@ -3,30 +3,15 @@ import FormInput from './FormInput';
 import AgeContext from '../context/age';
 
 export default function Form() {
-  const { day, handleDayChange, month, handleMonthChange, year, handleYearChange, onSubmit, dayIsValid, monthIsValid, yearIsValid } = useContext(AgeContext);
+  const { formData, handleInputChange, handleSubmit } = useContext(AgeContext);
 
-  let dayError;
-  let monthError;
-  let yearError;
-
-  if (!dayIsValid) {
-    dayError = 'Must be a valid day';
-  } 
-
-  if (!monthIsValid) {
-    monthError = 'Must be a valid month';
-  }
-
-  if (!yearIsValid) {
-    yearError = 'Must be in the past';
-  }
 
   return(
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className='flex-row'>
-        <FormInput placeholder="DD" type="number" errorMessage={dayError} maxLength={2} isValid={dayIsValid} required label="DAY" value={day} onChange={handleDayChange} />
-        <FormInput placeholder="MM" type="number" errorMessage={monthError} maxLength={2} isValid={monthIsValid} required label="MONTH" value={month} onChange={handleMonthChange} />
-        <FormInput placeholder="YYYY" required type="number" errorMessage={yearError} label='YEAR' value={year} onChange={handleYearChange} isValid={yearIsValid} />
+        <FormInput name="day" placeholder="DD" type="number" required label="DAY" value={formData.day} onChange={handleInputChange} />
+        <FormInput name="month" placeholder="MM" type="number" required label="MONTH" value={formData.month} onChange={handleInputChange} />
+        <FormInput name="year" placeholder="YYYY" required type="number" label='YEAR' value={formData.year} onChange={handleInputChange} />
       </div>
       <div className='flex-row divider'>
         <hr />

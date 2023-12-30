@@ -1,20 +1,21 @@
-import clsx from 'clsx';
+import { useContext, useRef } from 'react';
+import AgeContext from '../context/age';
 
-export default function FormInput({ label, value, onChange, errorMessage, type, ...rest }) {
+export default function FormInput({ name, label, value, onChange, type, ...rest }) {
+  const { errors } = useContext(AgeContext);
+  const inputRef = useRef(null);
 
-  const otherProps = rest;
-  console.log(otherProps);
-  const classes = clsx({
-    "error": otherProps.isValid === false,
-  });
-
-  
+  if (errors[name] && inputRef.current) {
+    inputRef.current.className = "error";
+  } else if (inputRef.current) {
+    inputRef.current.className = "flex-col";
+  }
   
   return(
-    <div className={classes || "flex-col"}>
-      <label  htmlFor="">{label}</label>
-      <input type={type} {...rest} value={value} onChange={onChange} />
-      <p>{errorMessage}</p>
+    <div ref={inputRef} className="flex-col">
+      <label htmlFor="">{label}</label>
+      <input name={name} type={type} {...rest} value={value} onChange={onChange} />
+      {errors[name] && <p>{errors[name]}</p>}
     </div>
   )
 }
