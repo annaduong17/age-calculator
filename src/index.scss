@@ -138,3 +138,74 @@ body {
 .num {
   color: $purple;
 }
+
+
+
+
+@media (max-width: 600px) {
+  .container {
+    width: 90vw;
+    height: 130vw;
+    border-radius: 5vw 5vw 30vw 5vw;
+  }
+
+  .flex-row {
+    padding: 3vw;
+
+    button {
+    height: 14vw;
+    width: 14vw;
+    }
+
+    svg {
+      width: 6vw;
+      height: auto;
+    }
+  }
+
+  .flex-col {
+    margin-inline: 2vw;
+    
+    label {
+      font-size: 3vw;
+      letter-spacing: 1vw;
+      margin-bottom: 2vw;
+    }
+
+    input {
+      font-size: 5vw;
+      height: 13vw;
+      width: 87%;
+      border-radius: 2vw;
+    }
+  }
+
+  #inputs-container {
+    margin-top: 15vw;
+  }
+
+  #line-btn-container {
+    margin-block: 9vw 7vw;
+    margin-inline: 2vw;
+    position: relative;
+
+    button {
+      position: absolute;
+      left: 42.5%;
+    }
+  }
+
+  .display-container {
+    padding-bottom: 0;
+  }
+
+  .age {
+    font-size: 13.5vw;
+    height: 10vw;
+
+    p {
+      margin-inline: 2vw;
+    }
+  }
+  
+}
