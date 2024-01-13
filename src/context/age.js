@@ -11,11 +11,13 @@ function Provider({ children }) {
   const calculateAge = (birthdate) => {
     const today = new Date();
     const birthDate = new Date(birthdate);
-    console.log(birthDate);
 
     let years = today.getFullYear() - birthDate.getFullYear();
+    console.log(years);
     let months = today.getMonth() - birthDate.getMonth();
+    console.log(months);
     let days = today.getDate() - (birthDate.getDate() + 1);
+    console.log(days);
 
     if (days < 0) {
       const daysInLastMonth = new Date(
@@ -26,13 +28,13 @@ function Provider({ children }) {
 
       days += daysInLastMonth;
       months--;
-
-      if (months < 0) {
-        years--;
-        months += 12;
-      }
     } 
 
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+    
     return { years, months, days };
   }
 
@@ -41,13 +43,7 @@ function Provider({ children }) {
   
     setFormData(prevFormData => {
       const updatedFormData = { ...prevFormData, [name]: value };
-      const { year, month, day } = updatedFormData;
-      console.log(year);
-  
-      const birthdate = `${year}-${month}-${day}`;
-      const calcAge = calculateAge(birthdate);
-  
-      setAge({...age, ...calcAge});
+
       setFormSubmitted(false);
   
       return updatedFormData;
@@ -92,6 +88,13 @@ function Provider({ children }) {
     if (Object.keys(newErrors).length === 0) {
       setFormSubmitted(true);
     } 
+
+      const { year, month, day } = formData;
+  
+      const birthdate = `${Number(year)}-${Number(month)}-${Number(day)}`;
+      const calcAge = calculateAge(birthdate);
+      
+      setAge(calcAge);
   }
 
   const value = {

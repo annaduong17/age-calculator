@@ -1,9 +1,14 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Display from './Display';
 import AgeContext from '../context/age';
 
 export default function Age() {
   const { age } = useContext(AgeContext);
+
+  useEffect(() => {
+    console.log(age);
+  }, [age]);
+  
   return(
     <div className='display-container'>
       <Display value={age.years} >years</Display>
