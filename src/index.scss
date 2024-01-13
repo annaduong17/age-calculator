@@ -195,6 +195,17 @@ body {
     }
   }
 
+  .error {
+    margin-inline: 2vw;
+
+    input {
+      font-size: 5vw;
+      height: 13vw;
+      width: 87%;
+      border-radius: 2vw;
+    }
+  }
+
   .display-container {
     padding-bottom: 0;
   }
@@ -207,5 +218,4 @@ body {
       margin-inline: 2vw;
     }
   }
-  
 }
